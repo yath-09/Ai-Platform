@@ -4,8 +4,7 @@ import Image from "next/image";
 interface EmptyProps {
   label: string;
 }
-
-export const Empty = ({
+const Empty = ({
   label
 }: EmptyProps) => {
   return (
@@ -19,3 +18,4 @@ export const Empty = ({
     </div>
   );
 };
+export default Empty;

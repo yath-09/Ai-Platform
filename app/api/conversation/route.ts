@@ -28,14 +28,17 @@ export async function POST(
       return new NextResponse("Messages are required", { status: 400 });
     }
 
-
-    const response = await openai.chat.completions.create({
+    console.log("respnse started ")
+    const response = await openai.createChatCompletion({
       model: "gpt-3.5",
-      messages});
+      messages
+    });
+
+      console.log("respnse started 2 ")
 
 
 
-    return NextResponse.json(response.choices[0].message);} catch (error) {
+    return NextResponse.json(response.data.choices[0].message);} catch (error) {
     console.log('[CONVERSATION_ERROR]', error);
     return new NextResponse("Internal Error", { status: 500 });
   }

@@ -18,7 +18,7 @@ import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { cn } from "@/lib/utils";
 import { Loader } from "@/components/loader";
 import { UserAvatar } from "@/components/use-avatar";
-import { Empty } from "@/components/empty";
+import { Empty } from "@/components/ui/empty";
 //import { useProModal } from "@/hooks/use-pro-modal";
 
 import { formSchema,amountOptions, resolutionOptions } from "./constants";
@@ -197,7 +197,7 @@ const ImagePage = () => {
               <CardFooter className="p-2">
                 <Button onClick={() => window.open(src)} variant="secondary" className="w-full">
                   <Download className="h-4 w-4 mr-2" />
-                  Download
+                    Download
                 </Button>
               </CardFooter>
             </Card>

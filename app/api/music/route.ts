@@ -4,8 +4,7 @@ import { NextResponse } from "next/server";
 
 
 const replicate = new Replicate({
-  // auth: process.env.REPLICATE_API_TOKEN!,
-  auth:"r8_98eXbqxoEe6DOzdtrmLVKoFxzttqCeb07SNyd",
+  auth: process.env.REPLICATE_API_TOKEN!,
 });
 
 export async function POST(
@@ -24,7 +23,7 @@ export async function POST(
       return new NextResponse("Prompt is required", { status: 400 });
     }
 
- 
+    
 
 
     const response = await replicate.run(
@@ -36,7 +35,7 @@ export async function POST(
       }
     );
 
-   
+
     return NextResponse.json(response);
   } catch (error) {
     console.log('[MUSIC_ERROR]', error);
