@@ -17,9 +17,11 @@ import { Loader } from "@/components/loader";
 
 import { formSchema } from "./constants";
 import  Empty  from "@/components/ui/empty";
+import { ProModal } from "@/components/pro-modal";
+import { useProModal } from "@/hooks/use-pro-modal";
 
 const MusicPage = () => {
-  
+  const proModal=useProModal();
   const router = useRouter();
   const [music, setMusic] = useState<string>();
 
@@ -42,8 +44,12 @@ const MusicPage = () => {
       setMusic(response.data.audio);
       form.reset();
     } catch (error: any) {
-         console.log(error);
-      
+      console.log(values);
+        if (error?.response?.status === 403) {
+          proModal.onOpen();
+        } else {
+          //toast.error("Something went wrong.");
+        }
     } finally {
       router.refresh();
     }
